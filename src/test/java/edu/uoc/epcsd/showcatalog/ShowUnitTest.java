@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ShowUnitTest {
 
     @Test
-    public void givenShow_whenCancelled_thenShowStatusIsCancelled() {
+    public void whenShowCancel_thenShowStatusIsCancelled() {
         Show show = new Show();
         show.cancel();
 
