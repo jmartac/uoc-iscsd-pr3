@@ -5,25 +5,25 @@ import edu.uoc.epcsd.showcatalog.domain.repository.CategoryRepository;
 import edu.uoc.epcsd.showcatalog.domain.repository.ShowRepository;
 import edu.uoc.epcsd.showcatalog.domain.service.CatalogService;
 import edu.uoc.epcsd.showcatalog.domain.service.CatalogServiceImpl;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Optional;
 
-import static edu.uoc.epcsd.showcatalog.unit.CatalogServiceUnitTest.CatalogServiceTestConfig.*;
+import static edu.uoc.epcsd.showcatalog.unit.CatalogServiceUnitTest.CatalogServiceTestConfig.showRepository;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class CatalogServiceUnitTest {
 
     @TestConfiguration
@@ -46,7 +46,7 @@ public class CatalogServiceUnitTest {
     @Autowired
     private CatalogService catalogService;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         Show show = new Show();
         show.setId(1L);
